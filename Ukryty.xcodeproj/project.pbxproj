@@ -27,6 +27,7 @@
 		73D06DA8306BE615007EFF66 /* GuideModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D06DA7306BE60C007EFF66 /* GuideModels.swift */; };
 		73D06DAA306BE631007EFF66 /* GuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D06DA9306BE629007EFF66 /* GuideContent.swift */; };
 		73D06DAC306BE9C4007EFF66 /* EmergencyContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */; };
+		73FC98F7306D759200CFC295 /* ShelterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98F6306D758C00CFC295 /* ShelterCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		73D06DA7306BE60C007EFF66 /* GuideModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideModels.swift; sourceTree = "<group>"; };
 		73D06DA9306BE629007EFF66 /* GuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideContent.swift; sourceTree = "<group>"; };
 		73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsView.swift; sourceTree = "<group>"; };
+		73FC98F6306D758C00CFC295 /* ShelterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				73D06DA7306BE60C007EFF66 /* GuideModels.swift */,
 				73D06DA9306BE629007EFF66 /* GuideContent.swift */,
 				000000000000000000000064 /* Ukryty/Core/ArcGISShelterService.swift */,
+				73FC98F6306D758C00CFC295 /* ShelterCache.swift */,
 				000000000000000000000065 /* Ukryty/Core/Shelter.swift */,
 				000000000000000000000066 /* Ukryty/UI/ContentView.swift */,
 				73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */,
@@ -169,6 +172,7 @@
 				0000000000000000000000C9 /* Ukryty/Core/Shelter.swift in Sources */,
 				73D06DA4306BE1F3007EFF66 /* EmergencyBagEngine.swift in Sources */,
 				73D06D96306BD507007EFF66 /* PlaceholderViews.swift in Sources */,
+				73FC98F7306D759200CFC295 /* ShelterCache.swift in Sources */,
 				73D06D98306BD5F3007EFF66 /* HouseholdStore.swift in Sources */,
 				73D06D9C306BD67F007EFF66 /* ChecklistEngine.swift in Sources */,
 				0000000000000000000000CA /* Ukryty/UI/ContentView.swift in Sources */,
@@ -278,11 +282,12 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37E8AM77RB;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Ukryty/Info.plist;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.skorky.shelteratlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -301,11 +306,12 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 37E8AM77RB;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Ukryty/Info.plist;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.skorky.shelteratlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

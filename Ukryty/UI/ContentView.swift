@@ -1,11 +1,21 @@
+//
+//  Untitled.swift
+//  Ukryty
+//
+//  Created by Petr Skorkovsky on 29.09.2026.
+//
 import SwiftUI
 import MapKit
 
 @MainActor
 private final class MapViewState: ObservableObject {
+
     @Published var camera: MapCameraPosition = .region(
         MKCoordinateRegion(
-            center: .init(latitude: 49.8, longitude: 15.5),
+            center: .init(
+                latitude: 49.8,
+                longitude: 15.5
+            ),
             span: .init(
                 latitudeDelta: 3.3,
                 longitudeDelta: 6.5
@@ -23,9 +33,11 @@ struct ContentView: View {
     @StateObject private var location = LocationStore()
     @StateObject private var mapState = MapViewState()
 
-    // Schováváme pouze GPS banner,
-    // nikoli celou spodní kartu.
+    // Celý spodní informační panel.
     @State private var isLocationBannerExpanded = true
+
+    // Viditelná oblast mapy pro filtrování markerů.
+    @State private var visibleRegion: MKCoordinateRegion?
 
     @Environment(\.scenePhase) private var scenePhase
 
@@ -41,6 +53,7 @@ struct ContentView: View {
     )
 
     var body: some View {
+
         NavigationStack {
 
             Map(
@@ -50,9 +63,7 @@ struct ContentView: View {
 
                 UserAnnotation()
 
-                ForEach(
-                    store.snapshot?.shelters ?? []
-                ) { shelter in
+                ForEach(visibleShelters) { shelter in
 
                     Marker(
                         shelter.title,
@@ -68,9 +79,19 @@ struct ContentView: View {
                 }
             }
 
+            // MARK: - Ovládání mapy
+
             .mapControls {
                 MapCompass()
                 MapScaleView()
+            }
+
+            // Přepočítáme markery až po dokončení pohybu mapy.
+            .onMapCameraChange(
+                frequency: .onEnd
+            ) { context in
+
+                visibleRegion = context.region
             }
 
             // MARK: - Horní informační pruh
@@ -100,50 +121,64 @@ struct ContentView: View {
                 )
             }
 
-            // MARK: - Spodní karta
+            // MARK: - Rozbalený spodní panel
 
             .safeAreaInset(
                 edge: .bottom,
                 spacing: 8
             ) {
 
-                VStack(
-                    alignment: .leading,
-                    spacing: 12
-                ) {
+                if isLocationBannerExpanded {
 
-                    // TERINOS + nejbližší úkryt
-                    dataStatus
+                    VStack(
+                        alignment: .leading,
+                        spacing: 12
+                    ) {
 
-                    // MARK: GPS banner
-
-                    if isLocationBannerExpanded {
+                        dataStatus
 
                         expandedLocationBanner
-
-                    } else {
-
-                        HStack {
-                            Spacer()
-
-                            collapsedLocationPill
-                        }
                     }
-                }
-                .padding(16)
-                .frame(
-                    maxWidth: .infinity,
-                    alignment: .leading
-                )
-                .background(
-                    .regularMaterial,
-                    in: RoundedRectangle(
-                        cornerRadius: 22,
-                        style: .continuous
+                    .padding(16)
+                    .frame(
+                        maxWidth: .infinity,
+                        alignment: .leading
                     )
-                )
-                .padding(.horizontal, 16)
-                .padding(.bottom, 68)
+                    .background(
+                        .regularMaterial,
+                        in: RoundedRectangle(
+                            cornerRadius: 22,
+                            style: .continuous
+                        )
+                    )
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 68)
+                    .transition(
+                        .move(edge: .bottom)
+                        .combined(with: .opacity)
+                    )
+                }
+            }
+
+            // MARK: - Minimalizované plovoucí kolečko
+
+            .overlay(
+                alignment: .bottomTrailing
+            ) {
+
+                if !isLocationBannerExpanded {
+
+                    collapsedLocationButton
+                        .padding(.trailing, 20)
+
+                        // Umístění nad spodní TabView lištu.
+                        .padding(.bottom, 82)
+
+                        .transition(
+                            .scale(scale: 0.7)
+                            .combined(with: .opacity)
+                        )
+                }
             }
 
             .navigationTitle("Úkryty")
@@ -158,8 +193,11 @@ struct ContentView: View {
                 ) {
 
                     NavigationLink {
+
                         EmergencyContactsView()
+
                     } label: {
+
                         Image(
                             systemName: "phone.fill"
                         )
@@ -171,6 +209,7 @@ struct ContentView: View {
                             "Načíst TERINOS znovu",
                             systemImage: "arrow.clockwise"
                         ) {
+
                             reset(
                                 demo: false
                             )
@@ -180,6 +219,7 @@ struct ContentView: View {
                             "Zobrazit demonstrační data",
                             systemImage: "testtube.2"
                         ) {
+
                             reset(
                                 demo: true
                             )
@@ -189,6 +229,7 @@ struct ContentView: View {
                             "Zobrazit celou ČR",
                             systemImage: "map"
                         ) {
+
                             mapState.camera = .region(
                                 Self.country
                             )
@@ -209,6 +250,7 @@ struct ContentView: View {
             .sheet(
                 item: $mapState.detail,
                 onDismiss: {
+
                     mapState.selectedID = nil
                 }
             ) { shelter in
@@ -251,13 +293,15 @@ struct ContentView: View {
                         )
                     )
 
-                    // Po získání polohy
-                    // schováme pouze GPS banner.
+                    // Jakmile máme polohu,
+                    // celý spodní panel minimalizujeme.
                     withAnimation(
-                        .easeInOut(
-                            duration: 0.25
+                        .spring(
+                            response: 0.35,
+                            dampingFraction: 0.85
                         )
                     ) {
+
                         isLocationBannerExpanded = false
                     }
                 }
@@ -274,10 +318,14 @@ struct ContentView: View {
                 }
             }
 
+            // MARK: - Načtení TERINOS
+
             .task {
 
-                if store.snapshot == nil &&
-                    !store.loading {
+                // Pokud existuje disková cache,
+                // zůstane zobrazena a současně
+                // obnovíme TERINOS ze sítě.
+                if !store.loading {
 
                     store.load()
                 }
@@ -285,7 +333,62 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - Rozbalený GPS banner
+    // MARK: - Úkryty viditelné v aktuální oblasti
+
+    private var visibleShelters: [Shelter] {
+
+        guard let shelters =
+            store.snapshot?.shelters
+        else {
+            return []
+        }
+
+        guard let region =
+            visibleRegion
+        else {
+            return shelters
+        }
+
+        let latitudePadding =
+            region.span.latitudeDelta * 0.25
+
+        let longitudePadding =
+            region.span.longitudeDelta * 0.25
+
+        let minLatitude =
+            region.center.latitude
+            - region.span.latitudeDelta / 2
+            - latitudePadding
+
+        let maxLatitude =
+            region.center.latitude
+            + region.span.latitudeDelta / 2
+            + latitudePadding
+
+        let minLongitude =
+            region.center.longitude
+            - region.span.longitudeDelta / 2
+            - longitudePadding
+
+        let maxLongitude =
+            region.center.longitude
+            + region.span.longitudeDelta / 2
+            + longitudePadding
+
+        return shelters.filter { shelter in
+
+            let coordinate =
+                shelter.coordinate
+
+            return
+                coordinate.latitude >= minLatitude &&
+                coordinate.latitude <= maxLatitude &&
+                coordinate.longitude >= minLongitude &&
+                coordinate.longitude <= maxLongitude
+        }
+    }
+
+    // MARK: - Rozbalený GPS panel
 
     private var expandedLocationBanner: some View {
 
@@ -306,18 +409,23 @@ struct ContentView: View {
 
                 Spacer()
 
+                // Tohle schová CELÝ spodní panel.
                 Button {
+
                     withAnimation(
-                        .easeInOut(
-                            duration: 0.2
+                        .spring(
+                            response: 0.35,
+                            dampingFraction: 0.85
                         )
                     ) {
+
                         isLocationBannerExpanded = false
                     }
+
                 } label: {
 
                     Image(
-                        systemName: "chevron.right"
+                        systemName: "chevron.down"
                     )
                     .font(
                         .subheadline.bold()
@@ -329,11 +437,12 @@ struct ContentView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(
-                    "Skrýt informace o poloze"
+                    "Minimalizovat spodní panel"
                 )
             }
 
-            if let position = location.location {
+            if let position =
+                location.location {
 
                 Text(
                     "Poloha je dostupná s přesností přibližně ±\(Int(position.horizontalAccuracy)) m."
@@ -357,7 +466,8 @@ struct ContentView: View {
                 )
             }
 
-            if let message = location.message {
+            if let message =
+                location.message {
 
                 Text(message)
                     .font(.caption)
@@ -378,6 +488,7 @@ struct ContentView: View {
                                 UIApplication
                                 .openSettingsURLString
                         ) {
+
                             UIApplication
                                 .shared
                                 .open(url)
@@ -387,7 +498,9 @@ struct ContentView: View {
             }
 
             Button {
+
                 location.request()
+
             } label: {
 
                 Label(
@@ -410,85 +523,54 @@ struct ContentView: View {
                 style: .continuous
             )
         )
-        .transition(
-            .move(
-                edge: .trailing
-            )
-            .combined(
-                with: .opacity
-            )
-        )
     }
 
-    // MARK: - Sbalená GPS pill
+    // MARK: - Minimalizované kolečko
 
-    private var collapsedLocationPill: some View {
+    private var collapsedLocationButton: some View {
 
         Button {
 
             withAnimation(
-                .easeInOut(
-                    duration: 0.2
+                .spring(
+                    response: 0.35,
+                    dampingFraction: 0.85
                 )
             ) {
+
                 isLocationBannerExpanded = true
             }
 
         } label: {
 
-            HStack(
-                spacing: 7
-            ) {
-
-                Image(
-                    systemName: "location.fill"
-                )
-
-                if let position =
-                    location.location {
-
-                    Text(
-                        "±\(Int(position.horizontalAccuracy)) m"
-                    )
-
-                } else {
-
-                    Text("Poloha")
-                }
-
-                Image(
-                    systemName: "chevron.left"
-                )
-                .font(.caption.bold())
-            }
-            .font(
-                .subheadline.weight(
-                    .medium
-                )
+            Image(
+                systemName: "location.fill"
             )
-            .padding(
-                .horizontal,
-                14
+            .font(
+                .system(
+                    size: 19,
+                    weight: .semibold
+                )
             )
             .frame(
-                minHeight: 44
+                width: 54,
+                height: 54
             )
             .background(
-                .thinMaterial,
-                in: Capsule()
+                .regularMaterial,
+                in: Circle()
+            )
+            .contentShape(
+                Circle()
+            )
+            .shadow(
+                radius: 7,
+                y: 3
             )
         }
         .buttonStyle(.plain)
         .accessibilityLabel(
-            "Zobrazit informace o poloze"
-        )
-        .transition(
-            .move(
-                edge: .trailing
-            )
-            .combined(
-                with: .opacity
-            )
+            "Zobrazit spodní informační panel"
         )
     }
 
@@ -497,14 +579,16 @@ struct ContentView: View {
     @ViewBuilder
     private var dataStatus: some View {
 
-        if store.loading {
+        if store.loading,
+           store.snapshot == nil {
 
             ProgressView(
                 "Načítám evidované úkryty z TERINOS…"
             )
 
         } else if let error =
-                    store.error {
+                    store.error,
+                  store.snapshot == nil {
 
             VStack(
                 alignment: .leading,
@@ -521,6 +605,7 @@ struct ContentView: View {
                 Button(
                     "Zkusit znovu"
                 ) {
+
                     store.load()
                 }
             }
@@ -533,13 +618,24 @@ struct ContentView: View {
                 spacing: 8
             ) {
 
-                Text(
-                    "\(snapshot.shelters.count) bodů · načteno \(snapshot.loadedAt.formatted(date: .omitted, time: .shortened))"
-                )
-                .font(.caption)
-                .foregroundStyle(
-                    .secondary
-                )
+                HStack(
+                    spacing: 8
+                ) {
+
+                    Text(
+                        "\(snapshot.shelters.count) bodů · načteno \(snapshot.loadedAt.formatted(date: .omitted, time: .shortened))"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(
+                        .secondary
+                    )
+
+                    if store.loading {
+
+                        ProgressView()
+                            .controlSize(.mini)
+                    }
+                }
 
                 if snapshot.omittedCount > 0 {
 
@@ -554,6 +650,26 @@ struct ContentView: View {
                         horizontal: false,
                         vertical: true
                     )
+                }
+
+                if let error =
+                    store.error {
+
+                    Label(
+                        "Aktualizace se nepodařila. Zobrazují se poslední dostupná data.",
+                        systemImage:
+                            "exclamationmark.triangle"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(
+                        .secondary
+                    )
+
+                    Text(error)
+                        .font(.caption2)
+                        .foregroundStyle(
+                            .tertiary
+                        )
                 }
 
                 if snapshot.shelters.isEmpty {
@@ -604,18 +720,14 @@ struct ContentView: View {
                                 .secondary
                             )
                             .fixedSize(
-                                horizontal:
-                                    false,
-                                vertical:
-                                    true
+                                horizontal: false,
+                                vertical: true
                             )
                         }
                     }
 
                 } else {
 
-                    // Když není GPS,
-                    // necháme kartu stručnou.
                     Text(
                         "Klepnutím na bod v mapě zobrazíte detail úkrytu."
                     )
@@ -728,16 +840,12 @@ struct ContentView: View {
                 .region(
                     .init(
                         center: .init(
-                            latitude:
-                                50.083,
-                            longitude:
-                                14.426
+                            latitude: 50.083,
+                            longitude: 14.426
                         ),
                         span: .init(
-                            latitudeDelta:
-                                0.06,
-                            longitudeDelta:
-                                0.06
+                            latitudeDelta: 0.06,
+                            longitudeDelta: 0.06
                         )
                     )
                 )
