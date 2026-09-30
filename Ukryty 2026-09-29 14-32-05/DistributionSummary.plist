@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ukryty.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>2</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>01418C634F7322CE84A34BE787E8F2FE6019F31E</string>
+				<key>dateExpires</key>
+				<string>30.08.2029</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>37E8AM77RB.cz.skorky.shelteratlas</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>37E8AM77RB</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Ukryty.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>32a2d311-66e3-449d-9950-823b6b73da57</string>
+				<key>dateExpires</key>
+				<string>29.09.2027</string>
+				<key>name</key>
+				<string>Shelter Atlas</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>37E8AM77RB</string>
+				<key>name</key>
+				<string>Ceskoslovenska obchodni banka, a.s. (Enterprise)</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>0.1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

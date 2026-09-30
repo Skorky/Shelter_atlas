@@ -1,0 +1,125 @@
+2026-09-29 12:32:00 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x878ecaa00; archive(resolved)="<IDEArchive: 0x85dc94e00>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	Chain (15, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x878ecaa00; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x878eca400; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x875620c80; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x87202ca00; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x877970f00; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x87696d180; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x8789de300; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x877972080; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x87777e300; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x86a1e3400; teamID='37E8AM77RB', teamName='Ceskoslovenska obchodni banka, a.s. (Enterprise)', teamType='Enterprise', username='admin.tfrma@csob.cz', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x87777cf00; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="(null)">
+	<IDEDistributionContext: 0x87056e580; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="(null)">
+	<IDEDistributionContext: 0x87056f980; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="(null)">
+	<IDEDistributionContext: 0x8789dd400; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="<IDEDistributionMethodiOSEnterprise: 0x85df5aa80>", team="(null)">
+	<IDEDistributionContext: 0x8768caa80; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x8768cbc00; archive = "<IDEArchive: 0x85dc94e00>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x878ecaa00>
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionCreateDestRootStep
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionCopyItemStep
+2026-09-29 12:32:00 +0000  Running /usr/bin/ditto '-V' '/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app' '/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root/Payload/Ukryty.app'
+2026-09-29 12:32:00 +0000  >>> Copying /Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app 
+2026-09-29 12:32:00 +0000  copying file ./_CodeSignature/CodeResources ... 
+2026-09-29 12:32:00 +0000  2775 bytes for ./_CodeSignature/CodeResources
+2026-09-29 12:32:00 +0000  copying file ./AppIcon60x60@2x.png ... 
+2026-09-29 12:32:00 +0000  39066 bytes for ./AppIcon60x60@2x.png
+2026-09-29 12:32:00 +0000  copying file ./Assets.car ... 
+2026-09-29 12:32:00 +0000  4312408 bytes for ./Assets.car
+2026-09-29 12:32:00 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2026-09-29 12:32:00 +0000  60325 bytes for ./AppIcon76x76@2x~ipad.png
+2026-09-29 12:32:00 +0000  copying file ./Ukryty ... 
+2026-09-29 12:32:00 +0000  474816 bytes for ./Ukryty
+2026-09-29 12:32:00 +0000  copying file ./embedded.mobileprovision ... 
+2026-09-29 12:32:00 +0000  12132 bytes for ./embedded.mobileprovision
+2026-09-29 12:32:00 +0000  copying file ./Info.plist ... 
+2026-09-29 12:32:00 +0000  1562 bytes for ./Info.plist
+2026-09-29 12:32:00 +0000  copying file ./PkgInfo ... 
+2026-09-29 12:32:00 +0000  8 bytes for ./PkgInfo
+2026-09-29 12:32:00 +0000  /usr/bin/ditto exited with 0
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionEmbedProfileStep
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionInfoPlistStep
+2026-09-29 12:32:00 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2026-09-29 12:32:00 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionSymbolsStep
+2026-09-29 12:32:00 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionAppThinningStep
+2026-09-29 12:32:00 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionArchThinningStep
+2026-09-29 12:32:00 +0000  Archs to thin for item /Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app are []
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionODRStep
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionStripXattrsStep
+2026-09-29 12:32:00 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2026-09-29 12:32:00 +0000  Processing step: IDEDistributionCodesignStep
+2026-09-29 12:32:00 +0000  Entitlements for <IDEDistributionItem: 0x87867d620; bundleID='cz.skorky.shelteratlas', path='<DVTFilePath:0x878683000:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x87867d0e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x876b07020; name='iPhone Distribution: Ceskoslovenska obchodni banka, a.s.', hash='01418C634F7322CE84A34BE787E8F2FE6019F31E', serialNumber='25B785CB16BFF73FD2BAA95DD5703011', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2026-08-31 07:13:45 +0000''>', entitlements='{
+    "application-identifier" = "37E8AM77RB.cz.skorky.shelteratlas";
+    "com.apple.developer.team-identifier" = 37E8AM77RB;
+    "get-task-allow" = 0;
+}', teamID='37E8AM77RB', identifier='cz.skorky.shelteratlas', executablePath='<DVTFilePath:0x878680540:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app/Ukryty'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "37E8AM77RB.cz.skorky.shelteratlas";
+    "com.apple.developer.team-identifier" = 37E8AM77RB;
+    "get-task-allow" = 0;
+}
+2026-09-29 12:32:00 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2026-09-29 12:32:00 +0000  Entitlements for <IDEDistributionItem: 0x87867d620; bundleID='cz.skorky.shelteratlas', path='<DVTFilePath:0x878683000:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x87867d0e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x876b07020; name='iPhone Distribution: Ceskoslovenska obchodni banka, a.s.', hash='01418C634F7322CE84A34BE787E8F2FE6019F31E', serialNumber='25B785CB16BFF73FD2BAA95DD5703011', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2026-08-31 07:13:45 +0000''>', entitlements='{
+    "application-identifier" = "37E8AM77RB.cz.skorky.shelteratlas";
+    "com.apple.developer.team-identifier" = 37E8AM77RB;
+    "get-task-allow" = 0;
+}', teamID='37E8AM77RB', identifier='cz.skorky.shelteratlas', executablePath='<DVTFilePath:0x878680540:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app/Ukryty'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "37E8AM77RB.cz.skorky.shelteratlas";
+    "com.apple.developer.team-identifier" = 37E8AM77RB;
+    "get-task-allow" = 0;
+}
+2026-09-29 12:32:00 +0000  Writing entitlements for <IDEDistributionItem: 0x87867d620; bundleID='cz.skorky.shelteratlas', path='<DVTFilePath:0x878683000:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x87867d0e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x876b07020; name='iPhone Distribution: Ceskoslovenska obchodni banka, a.s.', hash='01418C634F7322CE84A34BE787E8F2FE6019F31E', serialNumber='25B785CB16BFF73FD2BAA95DD5703011', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2026-08-31 07:13:45 +0000''>', entitlements='{
+    "application-identifier" = "37E8AM77RB.cz.skorky.shelteratlas";
+    "com.apple.developer.team-identifier" = 37E8AM77RB;
+    "get-task-allow" = 0;
+}', teamID='37E8AM77RB', identifier='cz.skorky.shelteratlas', executablePath='<DVTFilePath:0x878680540:'/Users/petrskorkovsky/Library/Developer/Xcode/Archives/2026-09-29/Ukryty 29.09.2026, 14.31 2.xcarchive/Products/Applications/Ukryty.app/Ukryty'>', hardenedRuntime='0'>'> to: /var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/entitlements~~~bGLmdm
+2026-09-29 12:32:00 +0000  invoking codesign: <NSConcreteTask: 0x876924230; launchPath='/usr/bin/codesign', arguments='(
+    "-f",
+    "-s",
+    01418C634F7322CE84A34BE787E8F2FE6019F31E,
+    "--entitlements",
+    "/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/entitlements~~~bGLmdm",
+    "--preserve-metadata=identifier,flags,runtime,launch-constraints,library-constraints",
+    "--generate-entitlement-der",
+    "--strip-disallowed-xattrs",
+    "-vvv",
+    "/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root/Payload/Ukryty.app"
+)'>
+2026-09-29 12:32:01 +0000  codesign output: /var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root/Payload/Ukryty.app: replacing existing signature
+/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root/Payload/Ukryty.app: signed app bundle with Mach-O thin (arm64) [cz.skorky.shelteratlas]
+2026-09-29 12:32:01 +0000  Processing step: IDEDistributionZipODRItemStep
+2026-09-29 12:32:01 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2026-09-29 12:32:01 +0000  Processing step: IDEDistributionCreateIPAStep
+2026-09-29 12:32:01 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root' '/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Packages/Ukryty.ipa'
+2026-09-29 12:32:01 +0000  >>> Copying /var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root 
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/_CodeSignature/CodeResources ... 
+2026-09-29 12:32:01 +0000  2775 bytes for ./Payload/Ukryty.app/_CodeSignature/CodeResources
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/AppIcon60x60@2x.png ... 
+2026-09-29 12:32:01 +0000  39066 bytes for ./Payload/Ukryty.app/AppIcon60x60@2x.png
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/Assets.car ... 
+2026-09-29 12:32:01 +0000  4312408 bytes for ./Payload/Ukryty.app/Assets.car
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/AppIcon76x76@2x~ipad.png ... 
+2026-09-29 12:32:01 +0000  60325 bytes for ./Payload/Ukryty.app/AppIcon76x76@2x~ipad.png
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/Ukryty ... 
+2026-09-29 12:32:01 +0000  474816 bytes for ./Payload/Ukryty.app/Ukryty
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/embedded.mobileprovision ... 
+2026-09-29 12:32:01 +0000  12132 bytes for ./Payload/Ukryty.app/embedded.mobileprovision
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/Info.plist ... 
+2026-09-29 12:32:01 +0000  1562 bytes for ./Payload/Ukryty.app/Info.plist
+2026-09-29 12:32:01 +0000  copying file ./Payload/Ukryty.app/PkgInfo ... 
+2026-09-29 12:32:01 +0000  8 bytes for ./Payload/Ukryty.app/PkgInfo
+2026-09-29 12:32:01 +0000  /usr/bin/ditto exited with 0
+2026-09-29 12:32:01 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2026-09-29 12:32:01 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2026-09-29 12:32:01 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2026-09-29 12:32:01 +0000  IDEDistributionItem init <DVTFilePath:0x878683540:'/var/folders/gz/10k7bvrd4_z2rx2_dm2vw4rr0000gn/T/XcodeDistPipeline.~~~86ouV7/Root/Payload/Ukryty.app'>
+2026-09-29 12:32:01 +0000  Processing step: IDEDistributionCreateManifestStep
