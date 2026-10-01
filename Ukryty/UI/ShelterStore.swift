@@ -4,6 +4,13 @@ import Combine
 @MainActor
 final class ShelterStore: ObservableObject {
 
+    enum DataSource {
+        case none
+        case cache
+        case live
+        case demo
+    }
+
     @Published private(set)
     var snapshot: ShelterSnapshot?
 
@@ -16,12 +23,13 @@ final class ShelterStore: ObservableObject {
     @Published private(set)
     var demo = false
 
-    private let liveService: any ShelterService
+    @Published private(set)
+    var dataSource: DataSource = .none
 
+    private let liveService: any ShelterService
     private let cache = ShelterCache()
 
     private var task: Task<Void, Never>?
-
     private var generation = 0
 
     init(
@@ -33,8 +41,69 @@ final class ShelterStore: ObservableObject {
 
         // Nejprve zobrazíme poslední
         // úspěšně uložená data.
-        snapshot = cache.load()
+        if let cachedSnapshot = cache.load() {
+
+            snapshot = cachedSnapshot
+            dataSource = .cache
+
+        } else {
+
+            snapshot = nil
+            dataSource = .none
+        }
     }
+
+    // MARK: - Stav dat
+
+    var isShowingCachedData: Bool {
+        dataSource == .cache
+    }
+
+    var isShowingLiveData: Bool {
+        dataSource == .live
+    }
+
+    var isShowingDemoData: Bool {
+        dataSource == .demo
+    }
+
+    var dataSourceTitle: String {
+
+        switch dataSource {
+
+        case .none:
+            return "Data nejsou načtena"
+
+        case .cache:
+            return "Uložená data"
+
+        case .live:
+            return "Aktuální data"
+
+        case .demo:
+            return "Demonstrační data"
+        }
+    }
+
+    var dataSourceSymbol: String {
+
+        switch dataSource {
+
+        case .none:
+            return "questionmark.circle"
+
+        case .cache:
+            return "internaldrive"
+
+        case .live:
+            return "network"
+
+        case .demo:
+            return "testtube.2"
+        }
+    }
+
+    // MARK: - Načtení dat
 
     func load(
         demo: Bool = false
@@ -50,11 +119,10 @@ final class ShelterStore: ObservableObject {
         self.demo =
             demo
 
-        // DŮLEŽITÉ:
-        // snapshot už nemažeme.
+        // Snapshot nemažeme.
         //
         // Pokud už máme starší data,
-        // zůstanou na mapě během refreshu.
+        // zůstanou na mapě během aktualizace.
 
         loading = true
         error = nil
@@ -88,9 +156,19 @@ final class ShelterStore: ObservableObject {
                 loading =
                     false
 
-                // DEMO data do cache neukládáme.
-                if !demo {
-                    cache.save(value)
+                if demo {
+
+                    dataSource =
+                        .demo
+
+                } else {
+
+                    dataSource =
+                        .live
+
+                    cache.save(
+                        value
+                    )
                 }
 
             } catch {
@@ -104,6 +182,11 @@ final class ShelterStore: ObservableObject {
 
                 loading =
                     false
+
+                // Pokud už nějaká data máme,
+                // ponecháme je i po neúspěšném refreshi.
+                //
+                // dataSource zůstává beze změny.
 
                 if error is DecodingError {
 

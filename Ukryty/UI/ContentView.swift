@@ -26,6 +26,7 @@ struct ContentView: View {
     @StateObject private var store = ShelterStore()
     @StateObject private var location = LocationStore()
     @StateObject private var mapState = MapViewState()
+    @StateObject private var network = NetworkMonitor()
 
     // Celý spodní informační panel.
     @State private var isLocationBannerExpanded = true
@@ -820,9 +821,15 @@ struct ContentView: View {
                     systemImage:
                         "exclamationmark.triangle"
                 )
-                .font(
-                    .callout
+                .font(.callout)
+
+                Label(
+                    network.connectionDescription,
+                    systemImage:
+                        network.statusSymbol
                 )
+                .font(.caption)
+                .foregroundStyle(.secondary)
 
                 Button(
                     "Zkusit znovu"
@@ -837,8 +844,38 @@ struct ContentView: View {
 
             VStack(
                 alignment: .leading,
-                spacing: 8
+                spacing: 10
             ) {
+
+                // MARK: Zdroj a připojení
+
+                HStack(
+                    spacing: 8
+                ) {
+
+                    Label(
+                        store.dataSourceTitle,
+                        systemImage:
+                            store.dataSourceSymbol
+                    )
+                    .font(.subheadline.bold())
+
+                    Spacer()
+
+                    Label(
+                        network.statusTitle,
+                        systemImage:
+                            network.statusSymbol
+                    )
+                    .font(.caption.bold())
+                    .foregroundStyle(
+                        network.isConnected
+                            ? Color.secondary
+                            : Color.orange
+                    )
+                }
+
+                // MARK: Čas a počet bodů
 
                 HStack(
                     spacing: 8
@@ -847,38 +884,60 @@ struct ContentView: View {
                     Text(
                         "\(snapshot.shelters.count) bodů · načteno \(snapshot.loadedAt.formatted(date: .omitted, time: .shortened))"
                     )
-                    .font(
-                        .caption
-                    )
-                    .foregroundStyle(
-                        .secondary
-                    )
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
 
                     if store.loading {
 
                         ProgressView()
-                            .controlSize(
-                                .mini
-                            )
+                            .controlSize(.mini)
                     }
                 }
 
-                if snapshot.omittedCount > 0 {
+                // MARK: Stav aktualizace
 
-                    Text(
-                        "\(snapshot.omittedCount) záznamů nemá použitelné souřadnice. Nejbližší bod vybíráme pouze ze zobrazených záznamů."
+                if store.loading {
+
+                    Label(
+                        "Probíhá aktualizace dat…",
+                        systemImage:
+                            "arrow.clockwise"
                     )
-                    .font(
-                        .caption
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                }
+
+                if !network.isConnected {
+
+                    Label(
+                        store.isShowingCachedData
+                            ? "Offline – zobrazují se poslední uložená data."
+                            : "Offline – aktuálně není možné ověřit novější data.",
+                        systemImage:
+                            "wifi.slash"
                     )
-                    .foregroundStyle(
-                        .secondary
-                    )
+                    .font(.caption)
+                    .foregroundStyle(.orange)
                     .fixedSize(
-                        horizontal:
-                            false,
-                        vertical:
-                            true
+                        horizontal: false,
+                        vertical: true
+                    )
+                }
+
+                if store.isShowingCachedData,
+                   network.isConnected,
+                   !store.loading {
+
+                    Label(
+                        "Zobrazují se uložená data. Aktualizace z TERINOS zatím nebyla potvrzena.",
+                        systemImage:
+                            "internaldrive"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(
+                        horizontal: false,
+                        vertical: true
                     )
                 }
 
@@ -890,23 +949,32 @@ struct ContentView: View {
                         systemImage:
                             "exclamationmark.triangle"
                     )
-                    .font(
-                        .caption
-                    )
-                    .foregroundStyle(
-                        .secondary
-                    )
+                    .font(.caption)
+                    .foregroundStyle(.orange)
 
                     Text(
                         error
                     )
-                    .font(
-                        .caption2
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                }
+
+                // MARK: Neúplná data
+
+                if snapshot.omittedCount > 0 {
+
+                    Text(
+                        "\(snapshot.omittedCount) záznamů nemá použitelné souřadnice. Nejbližší bod vybíráme pouze ze zobrazených záznamů."
                     )
-                    .foregroundStyle(
-                        .tertiary
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(
+                        horizontal: false,
+                        vertical: true
                     )
                 }
+
+                // MARK: Nejbližší úkryt
 
                 if snapshot.shelters.isEmpty {
 
@@ -951,17 +1019,11 @@ struct ContentView: View {
                             Text(
                                 "Poloha je starší než 2 minuty. Aktualizujte ji pro určení nejbližšího evidovaného úkrytu."
                             )
-                            .font(
-                                .callout
-                            )
-                            .foregroundStyle(
-                                .secondary
-                            )
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
                             .fixedSize(
-                                horizontal:
-                                    false,
-                                vertical:
-                                    true
+                                horizontal: false,
+                                vertical: true
                             )
                         }
                     }
@@ -971,12 +1033,8 @@ struct ContentView: View {
                     Text(
                         "Klepnutím na bod v mapě zobrazíte detail úkrytu."
                     )
-                    .font(
-                        .callout
-                    )
-                    .foregroundStyle(
-                        .secondary
-                    )
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
                 }
             }
         }
