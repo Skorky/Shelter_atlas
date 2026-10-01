@@ -28,6 +28,11 @@
 		73D06DAA306BE631007EFF66 /* GuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D06DA9306BE629007EFF66 /* GuideContent.swift */; };
 		73D06DAC306BE9C4007EFF66 /* EmergencyContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */; };
 		73FC98F7306D759200CFC295 /* ShelterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98F6306D758C00CFC295 /* ShelterCache.swift */; };
+		73FC98FB306E47C400CFC295 /* ShelterCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98FA306E47BF00CFC295 /* ShelterCluster.swift */; };
+		73FC98FD306E4C7500CFC295 /* PreparednessPlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98FC306E4C7100CFC295 /* PreparednessPlanStore.swift */; };
+		73FC98FF306E4E8E00CFC295 /* HomeSuppliesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */; };
+		73FC9901306E4EB300CFC295 /* HomeSuppliesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9900306E4EAF00CFC295 /* HomeSuppliesStore.swift */; };
+		73FC9903306E4ED000CFC295 /* HomeSuppliesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +58,11 @@
 		73D06DA9306BE629007EFF66 /* GuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideContent.swift; sourceTree = "<group>"; };
 		73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsView.swift; sourceTree = "<group>"; };
 		73FC98F6306D758C00CFC295 /* ShelterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterCache.swift; sourceTree = "<group>"; };
+		73FC98FA306E47BF00CFC295 /* ShelterCluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterCluster.swift; sourceTree = "<group>"; };
+		73FC98FC306E4C7100CFC295 /* PreparednessPlanStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparednessPlanStore.swift; sourceTree = "<group>"; };
+		73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesModels.swift; sourceTree = "<group>"; };
+		73FC9900306E4EAF00CFC295 /* HomeSuppliesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesStore.swift; sourceTree = "<group>"; };
+		73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 				73FC98F6306D758C00CFC295 /* ShelterCache.swift */,
 				000000000000000000000065 /* Ukryty/Core/Shelter.swift */,
 				000000000000000000000066 /* Ukryty/UI/ContentView.swift */,
+				73FC98FA306E47BF00CFC295 /* ShelterCluster.swift */,
 				73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */,
 				73D06D93306BD4D1007EFF66 /* AppTabView.swift */,
 				73D06D95306BD4FE007EFF66 /* PlaceholderViews.swift */,
@@ -87,6 +98,10 @@
 				73D06D9D306BD8B7007EFF66 /* ChecklistProgressStore.swift */,
 				000000000000000000000067 /* Ukryty/UI/LocationStore.swift */,
 				000000000000000000000068 /* Ukryty/UI/ShelterDetail.swift */,
+				73FC98FC306E4C7100CFC295 /* PreparednessPlanStore.swift */,
+				73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */,
+				73FC9900306E4EAF00CFC295 /* HomeSuppliesStore.swift */,
+				73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */,
 				000000000000000000000069 /* Ukryty/UI/ShelterStore.swift */,
 				00000000000000000000006A /* Ukryty/UkrytyApp.swift */,
 				73D06D97306BD5EF007EFF66 /* HouseholdStore.swift */,
@@ -177,15 +192,20 @@
 				73D06D9C306BD67F007EFF66 /* ChecklistEngine.swift in Sources */,
 				0000000000000000000000CA /* Ukryty/UI/ContentView.swift in Sources */,
 				0000000000000000000000CB /* Ukryty/UI/LocationStore.swift in Sources */,
+				73FC9903306E4ED000CFC295 /* HomeSuppliesEngine.swift in Sources */,
 				73D06DAC306BE9C4007EFF66 /* EmergencyContactsView.swift in Sources */,
+				73FC98FD306E4C7500CFC295 /* PreparednessPlanStore.swift in Sources */,
 				0000000000000000000000CC /* Ukryty/UI/ShelterDetail.swift in Sources */,
 				73D06D9A306BD66B007EFF66 /* ChecklistModels.swift in Sources */,
+				73FC9901306E4EB300CFC295 /* HomeSuppliesStore.swift in Sources */,
 				73D06DA2306BE1D2007EFF66 /* EmergencyBagStored.swift in Sources */,
+				73FC98FF306E4E8E00CFC295 /* HomeSuppliesModels.swift in Sources */,
 				0000000000000000000000CD /* Ukryty/UI/ShelterStore.swift in Sources */,
 				73D06DA0306BE1B1007EFF66 /* EmergencyBagModels.swift in Sources */,
 				73D06D9E306BD8B8007EFF66 /* ChecklistProgressStore.swift in Sources */,
 				73D06DA8306BE615007EFF66 /* GuideModels.swift in Sources */,
 				73D06D94306BD4DF007EFF66 /* AppTabView.swift in Sources */,
+				73FC98FB306E47C400CFC295 /* ShelterCluster.swift in Sources */,
 				73D06DAA306BE631007EFF66 /* GuideContent.swift in Sources */,
 				0000000000000000000000CE /* Ukryty/UkrytyApp.swift in Sources */,
 			);

@@ -925,6 +925,447 @@ enum GuideContent {
 
             sourceName: "Ministerstvo vnitra ČR – 72 hodin",
             sourceURL: "https://www.72h.gov.cz/cs/informace-komunikace"
+        ),
+
+        // MARK: - NOUZOVÉ ZÁSOBY
+
+        GuideTopic(
+            id: "home-supplies",
+            title: "Nouzové zásoby",
+            subtitle: "Co mít doma připravené na prvních 72 hodin",
+            symbolName: "shippingbox.fill",
+
+            sections: [
+                GuideSection(
+                    id: "home-supplies-first",
+                    title: "Základ",
+                    items: [
+                        "Mějte doma zásobu pitné vody a trvanlivého jídla.",
+                        "Připravte lékárničku a potřebné léky.",
+                        "Mějte rádio a svítilnu na baterie.",
+                        "Připravte hotovost, powerbanku a náhradní baterie.",
+                        "Počítejte i s hygienou, vařením, zvířaty a specifickými potřebami členů domácnosti."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "home-supplies-why",
+                    title: "Proč zásoby potřebujeme",
+                    paragraphs: [
+                        "Při větší krizové situaci mohou být dočasně omezené dodávky vody, elektřiny a tepla. Nemusí fungovat internet, mobilní sítě, obchody, platební terminály, čerpací stanice ani veřejná doprava.",
+                        "Český koncept 72 hodin počítá s tím, že domácnost zvládne první tři dny s tím, co má připravené doma, aby záchranné složky mohly přednostně pomáhat lidem v bezprostředním ohrožení."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "home-supplies-priority",
+                    title: "Co má nejvyšší prioritu",
+                    paragraphs: [
+                        "Začněte vodou, jídlem, léky a možností získat informace. Dále se hodí svítilna, rádio na baterie, nabitá powerbanka, hotovost, hygienické potřeby a prostředky pro bezpečné vaření.",
+                        "Zásoby přizpůsobte počtu lidí, dětem, zvířatům, zdravotním potřebám a podmínkám ve vašem bydlišti."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "home-supplies-bag",
+                    title: "Domácí zásoby nejsou evakuační zavazadlo",
+                    paragraphs: [
+                        "Domácí zásoby jsou určené pro situaci, kdy zůstáváte doma bez běžných služeb. Evakuační zavazadlo je naopak omezený soubor věcí, které vezmete s sebou při rychlém opuštění domácnosti.",
+                        "Je praktické mít obě věci připravené odděleně."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin",
+            sourceURL: "https://www.72h.gov.cz/cs/nouzove-zasoby"
+        ),
+
+        // MARK: - VODA A HYGIENA
+
+        GuideTopic(
+            id: "water-hygiene",
+            title: "Voda a hygiena",
+            subtitle: "Jak zvládnout výpadek vody a nefunkční toaletu",
+            symbolName: "drop.fill",
+
+            sections: [
+                GuideSection(
+                    id: "water-hygiene-first",
+                    title: "Když voda neteče",
+                    items: [
+                        "K pití používejte bezpečnou pitnou vodu podle pokynů dodavatele nebo úřadů.",
+                        "Mějte doma balenou vodu a uzavíratelné nádoby pro případný odběr z cisteren.",
+                        "Vodu používejte úsporně a oddělte zásobu na pití od ostatní spotřeby.",
+                        "Na hygienu rukou lze při výpadku vody použít dezinfekci.",
+                        "Pokud toaleta nefunguje, použijte nouzové řešení s odpadkovými pytli."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "water-hygiene-supply",
+                    title: "Kolik vody připravit",
+                    paragraphs: [
+                        "České doporučení uvádí, že nouzově si dospělý člověk vystačí přibližně se dvěma litry pitné vody denně.",
+                        "Celková potřeba je vyšší, pokud započítáme vaření a osobní hygienu. Proto je vhodné mít kromě balené vody také kanystry nebo jiné uzavíratelné nádoby pro případný odběr vody."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "water-hygiene-toilet",
+                    title: "Nouzová toaleta",
+                    paragraphs: [
+                        "Při výpadku vody se nádržka běžné toalety po spláchnutí nemusí znovu naplnit.",
+                        "Oficiální české doporučení jako nouzové řešení uvádí vložit do záchodové mísy odpadkový pytel a do něj savý materiál, například toaletní papír, noviny nebo kočkolit. Po použití pytel pečlivě zavažte, vložte do dalších dvou pytlů a zlikvidujte podle aktuálních místních pokynů."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "water-hygiene-hands",
+                    title: "Hygiena rukou",
+                    paragraphs: [
+                        "Pokud není voda dostupná, používejte dezinfekci na ruce a šetřete pitnou vodu pro pití a přípravu jídla.",
+                        "Mějte připravené hygienické potřeby, toaletní papír, odpadkové pytle a potřeby specifické pro členy domácnosti."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin",
+            sourceURL: "https://www.72h.gov.cz/cs/voda"
+        ),
+
+        // MARK: - TEPLO A VAŘENÍ
+
+        GuideTopic(
+            id: "heat-cooking",
+            title: "Teplo a vaření",
+            subtitle: "Jak zvládnout výpadek topení a vařit bez elektřiny",
+            symbolName: "thermometer.medium",
+
+            sections: [
+                GuideSection(
+                    id: "heat-cooking-first",
+                    title: "Při výpadku",
+                    items: [
+                        "Soustřeďte domácnost pokud možno do jedné místnosti.",
+                        "Používejte vrstvy oblečení, deky a spacáky.",
+                        "Omezte zbytečné úniky tepla okny a dveřmi.",
+                        "Mějte jídlo, které lze sníst bez tepelné úpravy.",
+                        "Alternativní vařiče používejte pouze způsobem určeným výrobcem a s dostatečným větráním."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "heat-cooking-warm",
+                    title: "Jak udržet teplo",
+                    paragraphs: [
+                        "Pokud přestane fungovat vytápění, zmenšete prostor, který potřebujete udržovat v teple. Zavřete dveře do nepoužívaných místností a soustřeďte se do jedné místnosti.",
+                        "Používejte více vrstev oblečení, čepici, teplé ponožky, deky nebo spacáky."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "heat-cooking-safe",
+                    title: "Bezpečné alternativní vaření",
+                    paragraphs: [
+                        "Plynové vařiče, grily a další zařízení spalující palivo mohou vytvářet oxid uhelnatý a další spaliny. Používejte je jen v prostředí a způsobem, který výslovně dovoluje výrobce.",
+                        "Zařízení určené pouze pro venkovní použití nepoužívejte v bytě, sklepě, garáži ani jiném uzavřeném prostoru."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "heat-cooking-food",
+                    title: "Jídlo bez vaření",
+                    paragraphs: [
+                        "Část zásob by měla být použitelná i bez vaření, například trvanlivé pečivo, konzervy, hotová jídla nebo jiné potraviny, které běžně jíte a snášíte.",
+                        "Při plánování počítejte také s vodou potřebnou pro přípravu jídla."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin / norské DSB",
+            sourceURL: "https://www.72h.gov.cz/cs/bez-elektriny"
+        ),
+
+        // MARK: - SOUSEDSKÁ POMOC
+
+        GuideTopic(
+            id: "neighbours",
+            title: "Sousedská pomoc",
+            subtitle: "Jak si v krizi pomáhat v okolí",
+            symbolName: "person.2.fill",
+
+            sections: [
+                GuideSection(
+                    id: "neighbours-first",
+                    title: "Myslete na okolí",
+                    items: [
+                        "Zjistěte, kdo ve vašem okolí může potřebovat pomoc.",
+                        "Pomozte s předáváním důležitých informací.",
+                        "Podle možností pomozte s nákupem, vodou nebo přesunem.",
+                        "Sdílejte vybavení a zásoby jen tehdy, pokud tím neohrozíte vlastní domácnost.",
+                        "V naléhavých případech přivolejte odbornou pomoc."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "neighbours-who",
+                    title: "Kdo může potřebovat pomoc",
+                    paragraphs: [
+                        "Pomoc mohou potřebovat například lidé ve vyšším věku, lidé se zdravotním omezením, rodiny s malými dětmi, nemocní nebo lidé, kteří nerozumějí dobře česky.",
+                        "Nejjednodušší je předem se zeptat, zda a s čím by v krizové situaci potřebovali pomoci."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "neighbours-sharing",
+                    title: "Co lze sdílet",
+                    paragraphs: [
+                        "Sousedé si mohou pomoci například s dopravou, získáním vody, nákupem, předáním informací, společným vařením nebo zapůjčením vybavení.",
+                        "Předem domluvená spolupráce bývá užitečnější než improvizace ve chvíli, kdy už krize probíhá."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "neighbours-safety",
+                    title: "Pomáhejte bezpečně",
+                    paragraphs: [
+                        "Nevystavujte sebe ani ostatní zbytečnému nebezpečí. Pokud jde o akutní ohrožení života nebo zdraví, přivolejte záchranné složky.",
+                        "Respektujte soukromí a přání lidí, kterým nabízíte pomoc."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin",
+            sourceURL: "https://www.72h.gov.cz/cs/sousedi"
+        ),
+
+        // MARK: - SPECIFICKÉ POTŘEBY
+
+        GuideTopic(
+            id: "special-needs",
+            title: "Specifické potřeby",
+            subtitle: "Příprava při zdravotním omezení nebo závislosti na pomůckách",
+            symbolName: "cross.case.fill",
+
+            sections: [
+                GuideSection(
+                    id: "special-needs-first",
+                    title: "Připravte si",
+                    items: [
+                        "Seznam pravidelně užívaných léků a důležitých kontaktů.",
+                        "Potřebné zdravotní pomůcky a spotřební materiál.",
+                        "Náhradní baterie nebo jiný způsob napájení pomůcek.",
+                        "Papírovou kartičku s informací, jak vám lze pomoci.",
+                        "Domluvenou osobu, která ví o vašich potřebách a může vám v krizi pomoci."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "special-needs-plan",
+                    title: "Připravte plán podle svých potřeb",
+                    paragraphs: [
+                        "Zvažte, na čem jste každý den závislí: léky, elektřina, mobilita, komunikace, asistence nebo zdravotnická technika.",
+                        "Promyslete alternativu pro případ výpadku elektřiny, vody, internetu nebo běžné pomoci."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "special-needs-card",
+                    title: "Papírová karta",
+                    paragraphs: [
+                        "Může být užitečné mít u sebe papírovou kartu s důležitými zdravotními informacemi, kontakty a stručným popisem toho, jakou pomoc potřebujete.",
+                        "Karta může pomoci záchranářům, sousedům nebo jiné osobě, pokud nebude možné vše vysvětlit osobně."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "special-needs-network",
+                    title: "Domluvte si pomoc předem",
+                    paragraphs: [
+                        "Promluvte si s rodinou, přáteli, sousedy nebo asistenty o tom, co budete potřebovat při delším výpadku služeb nebo při evakuaci.",
+                        "Pokud využíváte pravidelnou zdravotní či sociální službu, zjistěte si předem, jak může fungovat v mimořádné situaci."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin / norské DSB",
+            sourceURL: "https://www.dsb.no/en/Safe-everyday-life/Self-preparedness/Self-preparedness-in-the-event-of-disabilities/"
+        ),
+
+        // MARK: - AUTO A MOBILITA
+
+        GuideTopic(
+            id: "mobility",
+            title: "Auto a mobilita",
+            subtitle: "Jak se připravit na omezenou dopravu",
+            symbolName: "car.fill",
+
+            sections: [
+                GuideSection(
+                    id: "mobility-first",
+                    title: "Předem",
+                    items: [
+                        "Udržujte vozidlo provozuschopné a mějte dostatek paliva nebo energie.",
+                        "Mějte ve vozidle povinnou a základní nouzovou výbavu.",
+                        "Stáhněte si offline mapy a zvažte papírovou mapu.",
+                        "Při evakuaci autem zvažte počasí, stav cest a dostupnost paliva.",
+                        "V krizi používejte auto jen tehdy, když je to rozumné a bezpečné."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "mobility-readiness",
+                    title: "Připravené vozidlo",
+                    paragraphs: [
+                        "Při rozsáhlejším výpadku nemusí fungovat čerpací stanice nebo nabíjecí infrastruktura. Proto je užitečné nenechávat nádrž nebo baterii dlouhodobě téměř prázdnou.",
+                        "Pravidelně kontrolujte technický stav vozidla a mějte dostupnou lékárničku, výstražný trojúhelník a další povinnou či užitečnou výbavu."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "mobility-maps",
+                    title: "Offline navigace",
+                    paragraphs: [
+                        "Mobilní data nebo některé online navigační služby nemusí být dostupné. Předem stažené offline mapy mohou pomoci při orientaci.",
+                        "Papírová mapa nebo autoatlas je jednoduchá záloha, která nepotřebuje elektřinu ani datové připojení."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "mobility-crisis",
+                    title: "Kdy auto raději nepoužívat",
+                    paragraphs: [
+                        "Při krizové situaci mohou být cesty blokované nebo potřebné pro záchranné složky. Nevyjíždějte bez důvodu jen proto, abyste se podívali, co se děje.",
+                        "Při nařízené evakuaci se řiďte konkrétními pokyny odpovědných orgánů."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin / polský Poradnik bezpieczeństwa",
+            sourceURL: "https://www.gov.pl/web/poradnikbezpieczenstwa/przygotuj-swoje-otoczenie"
+        ),
+
+        // MARK: - KYBERBEZPEČNOST
+
+        GuideTopic(
+            id: "cyber",
+            title: "Kyberbezpečnost",
+            subtitle: "Jak chránit účty a ověřovat informace",
+            symbolName: "lock.shield.fill",
+
+            sections: [
+                GuideSection(
+                    id: "cyber-first",
+                    title: "Základní ochrana",
+                    items: [
+                        "Používejte unikátní a silná hesla.",
+                        "Zapněte vícefaktorové ověřování, kde je dostupné.",
+                        "Neotvírejte podezřelé odkazy a přílohy.",
+                        "Pravidelně aktualizujte zařízení a aplikace.",
+                        "Než krizovou informaci pošlete dál, ověřte její původ."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "cyber-phishing",
+                    title: "Phishing a podvodné zprávy",
+                    paragraphs: [
+                        "Krizové situace mohou zneužívat podvodníci prostřednictvím falešných zpráv, sbírek, výzev k přihlášení nebo údajně naléhavých odkazů.",
+                        "Pokud zpráva vyžaduje rychlé zadání hesla, platebních údajů nebo jiných citlivých informací, ověřte si její původ jinou cestou."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "cyber-accounts",
+                    title: "Chraňte účty",
+                    paragraphs: [
+                        "Pro důležité účty používejte různá hesla a tam, kde je to možné, vícefaktorové ověření.",
+                        "Aktualizace operačního systému a aplikací opravují také bezpečnostní chyby, proto je zbytečně neodkládejte."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "cyber-information",
+                    title: "Ověřujte krizové informace",
+                    paragraphs: [
+                        "Při mimořádné události sledujte zejména oficiální zdroje státních institucí, obcí, krajů a záchranných složek.",
+                        "Pozor na senzační obsah bez jasného zdroje, staré fotografie vydávané za aktuální a zprávy, které vás nutí okamžitě něco sdílet."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin / polský Poradnik bezpieczeństwa",
+            sourceURL: "https://www.72h.gov.cz/cs/informace-komunikace"
+        ),
+
+        // MARK: - KONTROLA PŘIPRAVENOSTI
+
+        GuideTopic(
+            id: "preparedness-review",
+            title: "Kontrola připravenosti",
+            subtitle: "Jak udržovat zásoby a plán použitelné",
+            symbolName: "checklist.checked",
+
+            sections: [
+                GuideSection(
+                    id: "preparedness-review-first",
+                    title: "Pravidelně zkontrolujte",
+                    items: [
+                        "Datum spotřeby jídla, vody a léků.",
+                        "Funkčnost svítilen, rádia a dalšího vybavení.",
+                        "Stav baterií a nabití powerbank.",
+                        "Kontakty a rodinný krizový plán.",
+                        "Vybavení dětí, zvířat a osob se specifickými potřebami."
+                    ]
+                )
+            ],
+
+            articleSections: [
+                GuideArticleSection(
+                    id: "preparedness-review-when",
+                    title: "Jak často",
+                    paragraphs: [
+                        "Nouzové zásoby nejsou jednorázový nákup. Průběžně je spotřebovávejte a doplňujte tak, aby byly použitelné a odpovídaly aktuální domácnosti.",
+                        "Norské DSB doporučuje projít domácí připravenost nejméně jednou ročně. V praxi je vhodné kontrolu udělat také po změně léků, přestěhování, narození dítěte nebo jiné významné změně domácnosti."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "preparedness-review-test",
+                    title: "Vybavení také vyzkoušejte",
+                    paragraphs: [
+                        "Nestačí vědět, že rádio nebo vařič vlastníte. Ověřte, že víte, jak je použít, že fungují a že máte správné baterie nebo palivo.",
+                        "Jednoduché vyzkoušení předem může odhalit chybějící kabel, vybitou baterii nebo jiný problém, který by v krizi zbytečně komplikoval situaci."
+                    ]
+                ),
+
+                GuideArticleSection(
+                    id: "preparedness-review-plan",
+                    title: "Aktualizujte plán",
+                    paragraphs: [
+                        "Zkontrolujte telefonní čísla, místa setkání a osoby, které mají v rodině konkrétní úkoly.",
+                        "Plán by měl odpovídat skutečným možnostem domácnosti a měl by mu rozumět každý, kdo jej může potřebovat."
+                    ]
+                )
+            ],
+
+            sourceName: "Ministerstvo vnitra ČR – 72 hodin / norské DSB",
+            sourceURL: "https://www.dsb.no/en/Safe-everyday-life/Self-preparedness/Plan-your-self-preparedness/"
         )
+
     ]
 }
