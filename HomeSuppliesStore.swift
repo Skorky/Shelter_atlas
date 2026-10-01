@@ -12,61 +12,92 @@ import Combine
 final class HomeSuppliesStore: ObservableObject {
 
     @Published private(set) var checkedIDs: Set<String> = []
+    @Published private(set) var lastReviewedAt: Date?
 
     private let defaults = UserDefaults.standard
 
-    private let storageKey =
-        "homeSupplies.checkedIDs"
+    private enum Key {
+        static let checkedIDs = "homeSupplies.checkedIDs"
+        static let lastReviewedAt = "homeSupplies.lastReviewedAt"
+    }
 
     init() {
         load()
     }
 
-    func isChecked(
-        _ id: String
-    ) -> Bool {
+    // MARK: - Checklist
 
+    func isChecked(_ id: String) -> Bool {
         checkedIDs.contains(id)
     }
 
-    func toggle(
-        _ id: String
-    ) {
-
+    func toggle(_ id: String) {
         if checkedIDs.contains(id) {
-
             checkedIDs.remove(id)
-
         } else {
-
             checkedIDs.insert(id)
         }
 
-        save()
+        saveCheckedIDs()
     }
 
     func reset() {
-
         checkedIDs.removeAll()
-        save()
+        lastReviewedAt = nil
+
+        saveCheckedIDs()
+        saveLastReviewedAt()
     }
 
-    private func save() {
+    // MARK: - Review
 
-        defaults.set(
-            Array(checkedIDs),
-            forKey: storageKey
-        )
+    func markReviewedToday() {
+        lastReviewedAt = Date()
+        saveLastReviewedAt()
+    }
+
+    var hasBeenReviewed: Bool {
+        lastReviewedAt != nil
+    }
+
+    var daysSinceReview: Int? {
+        guard let lastReviewedAt else {
+            return nil
+        }
+
+        let calendar = Calendar.current
+
+        return calendar.dateComponents(
+            [.day],
+            from: calendar.startOfDay(for: lastReviewedAt),
+            to: calendar.startOfDay(for: Date())
+        ).day
+    }
+
+    var reviewNeedsAttention: Bool {
+        guard let daysSinceReview else {
+            return true
+        }
+
+        return daysSinceReview >= 180
+    }
+
+    // MARK: - Persistence
+
+    private func saveCheckedIDs() {
+        defaults.set(Array(checkedIDs), forKey: Key.checkedIDs)
+    }
+
+    private func saveLastReviewedAt() {
+        defaults.set(lastReviewedAt, forKey: Key.lastReviewedAt)
     }
 
     private func load() {
+        let values = defaults.stringArray(forKey: Key.checkedIDs) ?? []
+        checkedIDs = Set(values)
 
-        let values =
-            defaults.stringArray(
-                forKey: storageKey
-            ) ?? []
-
-        checkedIDs =
-            Set(values)
+        lastReviewedAt = defaults.object(
+            forKey: Key.lastReviewedAt
+        ) as? Date
     }
 }

@@ -1166,9 +1166,55 @@ struct HomeSuppliesView: View {
             Double(items.count)
     }
 
+    private var reviewTitle: String {
+
+        guard let days = store.daysSinceReview else {
+            return "Zatím nekontrolováno"
+        }
+
+        switch days {
+        case 0:
+            return "Zkontrolováno dnes"
+
+        case 1:
+            return "Zkontrolováno včera"
+
+        default:
+            return "Zkontrolováno před \(days) dny"
+        }
+    }
+
+    private var reviewDetail: String {
+
+        guard let reviewed = store.lastReviewedAt else {
+            return "Projdi skutečný stav zásob a potom potvrď kontrolu."
+        }
+
+        if store.reviewNeedsAttention {
+            return "Od poslední kontroly uplynulo více než 6 měsíců. Je vhodné zásoby znovu projít."
+        }
+
+        return "Poslední kontrola: \(reviewed.formatted(date: .abbreviated, time: .omitted))"
+    }
+
+    private var reviewSymbol: String {
+
+        if store.lastReviewedAt == nil {
+            return "clock.badge.questionmark"
+        }
+
+        if store.reviewNeedsAttention {
+            return "exclamationmark.triangle.fill"
+        }
+
+        return "checkmark.circle.fill"
+    }
+
     var body: some View {
 
         List {
+
+            // MARK: Připravenost
 
             Section {
 
@@ -1230,6 +1276,72 @@ struct HomeSuppliesView: View {
                     4
                 )
             }
+
+            // MARK: Kontrola zásob
+
+            Section(
+                "Kontrola zásob"
+            ) {
+
+                HStack(
+                    alignment: .top,
+                    spacing: 12
+                ) {
+
+                    Image(
+                        systemName: reviewSymbol
+                    )
+                    .font(.title2)
+                    .foregroundStyle(
+                        store.reviewNeedsAttention
+                            ? .orange
+                            : .green
+                    )
+                    .frame(width: 30)
+
+                    VStack(
+                        alignment: .leading,
+                        spacing: 5
+                    ) {
+
+                        Text(reviewTitle)
+                            .font(.headline)
+
+                        Text(reviewDetail)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(
+                                horizontal: false,
+                                vertical: true
+                            )
+                    }
+                }
+                .padding(.vertical, 4)
+
+                Button {
+
+                    withAnimation(
+                        .easeInOut(
+                            duration: 0.2
+                        )
+                    ) {
+
+                        store.markReviewedToday()
+                    }
+
+                } label: {
+
+                    Label(
+                        store.lastReviewedAt == nil
+                            ? "Zkontrolováno dnes"
+                            : "Potvrdit dnešní kontrolu",
+                        systemImage:
+                            "checkmark.circle.fill"
+                    )
+                }
+            }
+
+            // MARK: Položky zásob
 
             ForEach(
                 HomeSupplyCategory.allCases,
@@ -1342,6 +1454,8 @@ struct HomeSuppliesView: View {
                     }
                 }
             }
+
+            // MARK: Zdroj
 
             Section {
 

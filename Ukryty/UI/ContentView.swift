@@ -273,7 +273,9 @@ struct ContentView: View {
 
                     NavigationLink {
 
-                        EmergencyContactsView()
+                        EmergencyContactsView(
+                            locationStore: location
+                        )
 
                     } label: {
 
@@ -282,6 +284,23 @@ struct ContentView: View {
                                 "phone.fill"
                         )
                     }
+
+                    NavigationLink {
+
+                        MyLocationView(
+                            locationStore: location
+                        )
+
+                    } label: {
+
+                        Image(
+                            systemName:
+                                "location.circle.fill"
+                        )
+                    }
+                    .accessibilityLabel(
+                        "Moje poloha"
+                    )
 
                     Menu {
 
@@ -329,7 +348,7 @@ struct ContentView: View {
                     }
                 }
             }
-
+            
             // MARK: - Detail úkrytu
 
             .sheet(

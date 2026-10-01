@@ -33,6 +33,7 @@
 		73FC98FF306E4E8E00CFC295 /* HomeSuppliesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */; };
 		73FC9901306E4EB300CFC295 /* HomeSuppliesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9900306E4EAF00CFC295 /* HomeSuppliesStore.swift */; };
 		73FC9903306E4ED000CFC295 /* HomeSuppliesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */; };
+		73FC9905306E857B00CFC295 /* MyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9904306E857800CFC295 /* MyLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesModels.swift; sourceTree = "<group>"; };
 		73FC9900306E4EAF00CFC295 /* HomeSuppliesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesStore.swift; sourceTree = "<group>"; };
 		73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesEngine.swift; sourceTree = "<group>"; };
+		73FC9904306E857800CFC295 /* MyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				73D06DA3306BE1EC007EFF66 /* EmergencyBagEngine.swift */,
 				73D06D9D306BD8B7007EFF66 /* ChecklistProgressStore.swift */,
 				000000000000000000000067 /* Ukryty/UI/LocationStore.swift */,
+				73FC9904306E857800CFC295 /* MyLocationView.swift */,
 				000000000000000000000068 /* Ukryty/UI/ShelterDetail.swift */,
 				73FC98FC306E4C7100CFC295 /* PreparednessPlanStore.swift */,
 				73FC98FE306E4E8900CFC295 /* HomeSuppliesModels.swift */,
@@ -190,6 +193,7 @@
 				73FC98F7306D759200CFC295 /* ShelterCache.swift in Sources */,
 				73D06D98306BD5F3007EFF66 /* HouseholdStore.swift in Sources */,
 				73D06D9C306BD67F007EFF66 /* ChecklistEngine.swift in Sources */,
+				73FC9905306E857B00CFC295 /* MyLocationView.swift in Sources */,
 				0000000000000000000000CA /* Ukryty/UI/ContentView.swift in Sources */,
 				0000000000000000000000CB /* Ukryty/UI/LocationStore.swift in Sources */,
 				73FC9903306E4ED000CFC295 /* HomeSuppliesEngine.swift in Sources */,
