@@ -35,6 +35,12 @@
 		73FC9903306E4ED000CFC295 /* HomeSuppliesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */; };
 		73FC9905306E857B00CFC295 /* MyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9904306E857800CFC295 /* MyLocationView.swift */; };
 		73FC9907306E892200CFC295 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9906306E891D00CFC295 /* NetworkMonitor.swift */; };
+		73FC9909306E8AEE00CFC295 /* FirstAidModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9908306E8AE300CFC295 /* FirstAidModels.swift */; };
+		73FC990B306E8B0800CFC295 /* FirstAidContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC990A306E8AFF00CFC295 /* FirstAidContent.swift */; };
+		73FC990D306E8B6F00CFC295 /* FirstAidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC990C306E8B6C00CFC295 /* FirstAidView.swift */; };
+		73FC990F306E8BC700CFC295 /* FirstAidDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC990E306E8BC300CFC295 /* FirstAidDetailView.swift */; };
+		73FC9911306E8BDB00CFC295 /* FirstAidArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9910306E8BD800CFC295 /* FirstAidArticleView.swift */; };
+		73FC9913306E8E3A00CFC295 /* FirstAidExtendedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC9912306E8E3600CFC295 /* FirstAidExtendedContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +73,12 @@
 		73FC9902306E4ECB00CFC295 /* HomeSuppliesEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuppliesEngine.swift; sourceTree = "<group>"; };
 		73FC9904306E857800CFC295 /* MyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationView.swift; sourceTree = "<group>"; };
 		73FC9906306E891D00CFC295 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		73FC9908306E8AE300CFC295 /* FirstAidModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidModels.swift; sourceTree = "<group>"; };
+		73FC990A306E8AFF00CFC295 /* FirstAidContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidContent.swift; sourceTree = "<group>"; };
+		73FC990C306E8B6C00CFC295 /* FirstAidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidView.swift; sourceTree = "<group>"; };
+		73FC990E306E8BC300CFC295 /* FirstAidDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidDetailView.swift; sourceTree = "<group>"; };
+		73FC9910306E8BD800CFC295 /* FirstAidArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidArticleView.swift; sourceTree = "<group>"; };
+		73FC9912306E8E3600CFC295 /* FirstAidExtendedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidExtendedContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +102,15 @@
 				73FC98F6306D758C00CFC295 /* ShelterCache.swift */,
 				000000000000000000000065 /* Ukryty/Core/Shelter.swift */,
 				000000000000000000000066 /* Ukryty/UI/ContentView.swift */,
+				73FC9908306E8AE300CFC295 /* FirstAidModels.swift */,
+				73FC990A306E8AFF00CFC295 /* FirstAidContent.swift */,
+				73FC990C306E8B6C00CFC295 /* FirstAidView.swift */,
+				73FC990E306E8BC300CFC295 /* FirstAidDetailView.swift */,
+				73FC9910306E8BD800CFC295 /* FirstAidArticleView.swift */,
 				73FC98FA306E47BF00CFC295 /* ShelterCluster.swift */,
 				73D06DAB306BE9C0007EFF66 /* EmergencyContactsView.swift */,
 				73D06D93306BD4D1007EFF66 /* AppTabView.swift */,
+				73FC9912306E8E3600CFC295 /* FirstAidExtendedContent.swift */,
 				73D06D95306BD4FE007EFF66 /* PlaceholderViews.swift */,
 				73D06D99306BD667007EFF66 /* ChecklistModels.swift */,
 				73D06D9B306BD67C007EFF66 /* ChecklistEngine.swift */,
@@ -189,12 +207,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73FC9913306E8E3A00CFC295 /* FirstAidExtendedContent.swift in Sources */,
 				0000000000000000000000C8 /* Ukryty/Core/ArcGISShelterService.swift in Sources */,
+				73FC9909306E8AEE00CFC295 /* FirstAidModels.swift in Sources */,
 				0000000000000000000000C9 /* Ukryty/Core/Shelter.swift in Sources */,
 				73D06DA4306BE1F3007EFF66 /* EmergencyBagEngine.swift in Sources */,
 				73D06D96306BD507007EFF66 /* PlaceholderViews.swift in Sources */,
 				73FC98F7306D759200CFC295 /* ShelterCache.swift in Sources */,
+				73FC990B306E8B0800CFC295 /* FirstAidContent.swift in Sources */,
 				73D06D98306BD5F3007EFF66 /* HouseholdStore.swift in Sources */,
+				73FC990D306E8B6F00CFC295 /* FirstAidView.swift in Sources */,
+				73FC9911306E8BDB00CFC295 /* FirstAidArticleView.swift in Sources */,
 				73D06D9C306BD67F007EFF66 /* ChecklistEngine.swift in Sources */,
 				73FC9907306E892200CFC295 /* NetworkMonitor.swift in Sources */,
 				73FC9905306E857B00CFC295 /* MyLocationView.swift in Sources */,
@@ -212,6 +235,7 @@
 				73D06DA0306BE1B1007EFF66 /* EmergencyBagModels.swift in Sources */,
 				73D06D9E306BD8B8007EFF66 /* ChecklistProgressStore.swift in Sources */,
 				73D06DA8306BE615007EFF66 /* GuideModels.swift in Sources */,
+				73FC990F306E8BC700CFC295 /* FirstAidDetailView.swift in Sources */,
 				73D06D94306BD4DF007EFF66 /* AppTabView.swift in Sources */,
 				73FC98FB306E47C400CFC295 /* ShelterCluster.swift in Sources */,
 				73D06DAA306BE631007EFF66 /* GuideContent.swift in Sources */,
